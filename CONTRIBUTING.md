@@ -7,7 +7,7 @@ opinions, so contributions to the rules themselves are especially welcome.
 ## Getting set up
 
 ```bash
-git clone https://github.com/slopscan/slopscan
+git clone https://github.com/LwkMoonn/slopscan
 cd slopscan
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
