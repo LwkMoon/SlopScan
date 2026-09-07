@@ -16,3 +16,5 @@ htmlcov/
 
 # Local, user-specific SlopScan config (commit .slopscan.toml.example instead)
 .slopscan.toml
+.slopscanignore.example
+DEVELOPER.md
