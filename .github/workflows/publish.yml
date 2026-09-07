@@ -1,0 +1,59 @@
+name: Publish to PyPI
+
+# Triggers on pushing a version tag, e.g.:
+#   git tag v0.1.0 && git push --tags
+#
+# Uses PyPI's Trusted Publishing (OIDC) -- no API token stored as a
+# secret. Before this will work you must register this repo + workflow
+# as a trusted publisher on pypi.org for your project. See DEVELOPER.md
+# section 5 ("Publishing to PyPI") for the one-time setup steps.
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build tooling
+        run: pip install build
+
+      - name: Run the full check suite before building a release
+        run: |
+          pip install -e ".[dev]"
+          ruff check src/ tests/
+          mypy src/slopscan
+          pytest -q
+
+      - name: Build sdist and wheel
+        run: python -m build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write  # required for PyPI trusted publishing
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

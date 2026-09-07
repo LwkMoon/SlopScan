@@ -1,0 +1,20 @@
+:root { --color-purple: #7c3aed; }
+.hero { background: linear-gradient(135deg, #7c3aed, #06b6d4); }
+.card { border-radius: 9999px; border-left: 4px solid #7c3aed; box-shadow: 0 0 40px rgba(124,58,237,0.6); }
+.card2 { border-radius: 9999px; border-left: 4px solid #7c3aed; box-shadow: 0 0 40px rgba(124,58,237,0.6); }
+.btn { background: linear-gradient(90deg, purple, indigo); border-radius: 999px; }
+.badge { text-transform: uppercase; }
+.badge2 { text-transform: uppercase; }
+.badge3 { text-transform: uppercase; }
+.badge4 { text-transform: uppercase; }
+.badge5 { text-transform: uppercase; }
+.glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.1); }
+.title-gradient { background: linear-gradient(90deg, violet, cyan); -webkit-background-clip: text; }
+@keyframes fadeUp { from { opacity: 0 } to { opacity: 1 } }
+.reveal { animation: fadeUp 0.5s; }
+.reveal2 { animation: fadeUp 0.5s; }
+.reveal3 { animation: fadeUp 0.5s; }
+.reveal4 { animation: fadeUp 0.5s; }
+.blob { animation: float 4s infinite; }
+.blob2 { animation: float 4s infinite; }
+.blob3 { animation: float 4s infinite; }

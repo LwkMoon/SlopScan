@@ -1,0 +1,28 @@
+# Example SlopScan configuration. Copy to `.slopscan.toml` in your project
+# root. Nothing here is required -- SlopScan works with zero configuration.
+
+[scan]
+timeout = 15                 # network timeout (seconds) for url/github targets
+max_file_size = 2_000_000    # per-file size limit in bytes (2MB default)
+max_files = 3000             # max files to scan
+exclude = []                 # additional ignore patterns, e.g. ["generated/", "legacy/"]
+crawl = false                 # follow same-origin links for deeper site analysis
+max_pages = 1                 # max pages to fetch when crawl = true
+
+[score]
+fail_under = 70               # `slopscan analyze . --fail-under 70` exits 1 at/above this
+
+# Uncomment to override default category weights (0-100 scale each,
+# they don't need to sum to 100 -- they're relative weights in a
+# weighted average). See docs/scoring.md for the default values.
+# [score.weights]
+# visual = 25
+# copy = 15
+
+[ai]
+enabled = false                # equivalent to always passing --ai
+provider = "anthropic"         # anthropic | openai | google
+# model = "claude-3-5-haiku-latest"
+
+# API keys are never read from this file -- set SLOPSCAN_AI_API_KEY in
+# your environment instead. See docs/ai-mode.md.

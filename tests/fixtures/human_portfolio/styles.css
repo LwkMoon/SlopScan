@@ -1,0 +1,13 @@
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --accent: #8b3a2f;
+}
+body { font-family: "Alento Text", Georgia, serif; font-size: 1.125rem; line-height: 1.7; color: var(--ink); background: var(--paper); }
+h1 { font-family: "Alento Display", Georgia, serif; font-size: 3.4rem; font-weight: 600; letter-spacing: -0.01em; }
+h2 { font-size: 1.6rem; font-weight: 500; margin-top: 3rem; }
+p { max-width: 62ch; }
+article { margin-bottom: 4rem; }
+figure img { max-width: 100%; border: 1px solid #ddd; }
+a { color: var(--accent); text-decoration-thickness: 1px; }
+footer { font-size: 0.85rem; color: #666; margin-top: 6rem; }
