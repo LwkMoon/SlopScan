@@ -68,7 +68,7 @@ pip install slopscan-cli
 Or from source:
 
 ```bash
-git clone https://github.com/slopscan/slopscan
+git clone https://github.com/LwkMoon/SlopScan
 cd slopscan
 pip install -e .
 ```
